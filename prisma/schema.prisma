@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
- 
 }
 
 datasource db {
@@ -14,11 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model deposito {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+model estoque {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
   nome      String
-  centro    String?     // opcional
-  material  String?     // opcional
-  criadoEm  DateTime    @default(now())
+  centro    String?
+  produtos  produto[]
+  criadoEm  DateTime   @default(now())
   atualizadoEm DateTime @updatedAt
+}
+
+model produto {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  nome         String
+  descricao    String?
+  quantidade   Int        @default(0)
+
+  estoqueId    String?    @db.ObjectId
+  estoque      estoque?   @relation(fields: [estoqueId], references: [id])
+
+  criadoEm     DateTime   @default(now())
+  atualizadoEm  DateTime   @updatedAt
 }
