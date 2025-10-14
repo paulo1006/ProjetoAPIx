@@ -11,11 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.16.3",
+    "@prisma/client": "^6.17.1",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "install": "^0.13.0",
+    "prime": "^0.5.0",
     "prisma": "^6.16.3"
   }
 }
