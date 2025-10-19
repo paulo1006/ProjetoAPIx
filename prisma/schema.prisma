@@ -28,3 +28,11 @@ model produto {
   criadoEm     DateTime   @default(now())
   atualizadoEm  DateTime   @updatedAt
 }
+
+model usuario {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  nome         String
+  email        String     @unique
+  senha        String
+  criadoEm     DateTime   @default(now())
+}
