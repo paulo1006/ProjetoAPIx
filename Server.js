@@ -52,6 +52,18 @@ app.post('/login', async(req,res) => {
     }
 })
 
+app.get('/usuarios', autenticarToken, async(req, res) => {
+    try{
+      const usuarios = await prisma.usuario.findMany({
+        select: {id:true, nome:true, email:true, criadoEm:true}
+      })
+      res.status(200).json(usuarios)
+    } catch(error){
+      res.status(500).json({error: 'Erro ao listar usuários'})
+    }
+})
+
+
 function autenticarToken(req,res,next){
   const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(' ')[1]
