@@ -1,3 +1,6 @@
+Leandro Nepomuceno - 2312721
+Paulo Matheus - 2317293
+
 🏪 API de Gerenciamento de Estoques e Produtos
 Esta API foi desenvolvida em Node.js com Express e Prisma.
 Ela gerencia dois recursos principais:
