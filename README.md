@@ -15,7 +15,7 @@ Ela gerencia dois recursos principais:
 - Prisma ORM — para comunicação com o banco de dados.
 - MongoDB — banco de dados NoSQL.
 - Thunder Client /Insomnia / Postman — para testar os endpoints.
-- https://projetoapix-1.onrender.com
+- https://projetoapix.onrender.com
 
 
 ⚙️ Instalação e Execução
