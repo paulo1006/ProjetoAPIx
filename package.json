@@ -20,6 +20,6 @@
   "devDependencies": {
     "install": "^0.13.0",
     "prime": "^0.5.0",
-    "prisma": "^6.16.3"
+    "prisma": "^6.17.1"
   }
 }

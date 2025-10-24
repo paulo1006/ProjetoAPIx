@@ -64,6 +64,24 @@ app.get('/usuarios', autenticarToken, async(req, res) => {
 })
 
 
+app.delete('/usuarios/:id', autenticarToken, async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const usuario = await prisma.usuario.findUnique({ where: { id } })
+    if (!usuario) {
+      return res.status(404).json({ error: 'Usuário não encontrado!' })
+    }
+
+    await prisma.usuario.delete({ where: { id } })
+    res.status(200).json({ message: 'Usuário deletado com sucesso!' })
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao deletar o usuário!' })
+  }
+})
+
+
+
 function autenticarToken(req,res,next){
   const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(' ')[1]
